@@ -1,0 +1,40 @@
+
+
+console.log("Hello the world");
+
+console.log(process.argv);
+
+var arg = process.argv[2];
+
+switch(arg){
+	case "help":
+		console.log("Help ?");
+		break
+		
+	case "message":
+	var message = process.argv[3]
+		console.log("Le message est : " +message);
+		break
+		
+	case "name":
+	var nom = process.argv[3];
+		console.log("Bonjour " +nom);
+		break
+		
+	case "nameList":
+	var nameList = process.argv[3]; 
+		console.log("Bonjour " +nameList);
+		
+		var fs = require("fs")
+	fs.readFile('./names.txt', 'utf8', function (err,data) {
+		if (err) {
+		return console.log(err)
+		}
+	console.log(data)
+	});
+		break
+		
+	default:
+		console.log("Command not found");
+		break
+}
